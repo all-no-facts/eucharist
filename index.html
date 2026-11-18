@@ -860,6 +860,100 @@
   .connector-path.child{ stroke:var(--line); stroke-width:1.5; }
   .connector-path.dotted{ stroke-dasharray: 3 4; }
 
+  /* ---------- BEYOND THIS PAGE ---------- */
+  section.beyond{
+    padding:72px 0 64px;
+    border-top:1px solid var(--line);
+  }
+  .beyond-tools{ margin-top:26px; display:flex; gap:10px; }
+  .beyond-tools button{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--ink);
+    border-radius:var(--radius);
+    padding:7px 12px;
+    cursor:pointer;
+  }
+  .beyond-tools button:hover{ background:var(--ink); color:var(--parchment); }
+
+  /* top-level row: open cards grow, closed cards stay compact */
+  .beyond-row{
+    display:flex;
+    gap:16px;
+    margin-top:16px;
+    align-items:flex-start;
+  }
+  .beyond-row > .bcard{ flex:1 1 0; min-width:0; }
+  .beyond-row > .bcard[open]{ flex-grow:2.1; }
+  .beyond-wide{ margin-top:16px; }
+
+  .bcard{
+    background: var(--parchment-deep);
+    border:1px solid var(--paper-edge);
+    border-radius: var(--radius);
+  }
+  .bcard > summary{
+    list-style:none;
+    cursor:pointer;
+    display:block;
+    padding:16px 40px 16px 18px;
+    position:relative;
+  }
+  .bcard > summary::-webkit-details-marker{ display:none; }
+  .bcard > summary::after{
+    content:"+";
+    position:absolute;
+    right:16px; top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:18px;
+    line-height:1;
+    color:var(--wine-deep);
+  }
+  .bcard[open] > summary::after{ content:"\2212"; }
+  .bcard > summary:focus-visible{ outline:2px solid var(--wine-deep); outline-offset:-2px; }
+  .bcard h4{ font-size:17px; line-height:1.25; margin:0; }
+  .bcard .b-where{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-top:6px;
+  }
+  .bcard .b-teaser{ font-size:13.5px; color:var(--ink-soft); margin:8px 0 0; }
+  .bcard[open] > summary .b-teaser{ display:none; }
+  .bcard .b-count{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--wine-deep);
+  }
+  .bcard[open] > summary .b-count{ display:none; }
+  .b-body{ padding:0 18px 18px; }
+  .b-body > p{ margin:0 0 12px; font-size:14px; color:var(--ink-soft); }
+  .b-body > p:last-child{ margin-bottom:0; }
+
+  /* nested cards */
+  .b-children{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+  .bcard .bcard{
+    background: var(--parchment);
+    border-left:3px solid var(--wine-deep);
+  }
+  .bcard .bcard .bcard{ background: var(--parchment-deep); border-left-color:var(--slate); }
+  .bcard .bcard > summary{ padding:12px 36px 12px 14px; }
+  .bcard .bcard > summary::after{ right:12px; top:11px; font-size:16px; }
+  .bcard .bcard h4{ font-size:15.5px; }
+  .bcard .bcard .b-body{ padding:0 14px 14px; }
+
+  .beyond-close{ font-size:13.5px; color:var(--ink-faint); max-width:640px; margin-top:28px; }
+
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -879,6 +973,11 @@
     .node{ flex-direction:row; text-align:left; gap:16px; }
     .node .flame{ margin-bottom:0; flex:0 0 auto; }
     .off-rail{ width:auto; align-items:flex-start; margin-left:8px;}
+  }
+
+  @media (max-width: 980px){
+    .beyond-row{ flex-direction:column; align-items:stretch; }
+    .beyond-row > .bcard[open]{ flex-grow:1; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -977,6 +1076,269 @@
       <div class="explain-layer" id="explainLayer"></div>
       <div class="portrait-panel" id="portraitPanel"></div>
     </div>
+  </div>
+</section>
+
+<section class="beyond">
+  <div class="container">
+    <div class="eyebrow mono">What this page leaves out</div>
+    <h2 style="font-size:28px;">Beyond the European story</h2>
+    <p class="section-intro">
+      This page follows one thread: the Western European argument over what happens to the
+      bread and wine, from medieval Rome through the Reformation. It is the story most
+      English-language sources tell, and the one the spectrum above is built to sort. It is
+      not the whole picture. A majority of the world's Christians now live outside Europe
+      and North America, and some of the oldest communities — in Ethiopia, Egypt, Syria,
+      Iraq, Armenia and India — descend from churches that took no part in the medieval Latin
+      debate or the Reformation. Their traditions often don't fit the categories above: some
+      affirm a real change in the bread and wine without defining it, and several separated
+      from other churches over questions that had little to do with communion. A few, named
+      here as pointers rather than a survey. Click any card to open it; cards nest to show
+      which traditions belong to the same family.
+    </p>
+
+    <div class="beyond-tools">
+      <button type="button" id="beyondExpand">Expand all</button>
+      <button type="button" id="beyondCollapse">Collapse all</button>
+    </div>
+
+    <div class="beyond-row">
+
+      <details class="bcard">
+        <summary>
+          <h4>Oriental Orthodox</h4>
+          <div class="b-where">Ethiopia · Egypt · Syria · Armenia · India</div>
+          <p class="b-teaser">Churches that parted from the wider church at Chalcedon (451) — over Christ's nature, not communion.</p>
+          <span class="b-count">3 groups inside</span>
+        </summary>
+        <div class="b-body">
+          <p>
+            A family of ancient churches that separated over how to describe Christ's nature
+            at the Council of Chalcedon (451), not over communion. They share the Eastern
+            Orthodox belief in a real change in the bread and wine, but they are a separate
+            family from the Greek and Russian churches in the timeline above.
+          </p>
+          <div class="b-children">
+
+            <details class="bcard">
+              <summary>
+                <h4>Ethiopian and Eritrean Orthodox</h4>
+                <div class="b-where">Tewahedo churches · Horn of Africa</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  Teach that the bread and wine truly become Christ's body and blood — a
+                  change described as real, not symbolic. Practice is distinctive: specially
+                  baked leavened bread, a complete fast from midnight (no water), infants
+                  communed from baptism, and communion closed to non-Orthodox Christians.
+                </p>
+              </div>
+            </details>
+
+            <details class="bcard">
+              <summary>
+                <h4>Coptic, Syriac and Armenian Orthodox</h4>
+                <div class="b-where">Egypt · Middle East · Armenia</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  The Coptic Church in Egypt, the Syriac Orthodox Church of the Middle East,
+                  and the Armenian Apostolic Church each keep their own ancient liturgy and
+                  language. This page does not describe their practice in detail; they are
+                  named here so readers know they exist and are not the same as Greek or
+                  Russian Orthodoxy.
+                </p>
+              </div>
+            </details>
+
+            <details class="bcard">
+              <summary>
+                <h4>Malankara Orthodox and Jacobite Syrian churches</h4>
+                <div class="b-where">Kerala, India</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  Heirs of the ancient Thomas Christians, worshipping in a West Syriac
+                  liturgy. The Thomas Christians resisted Latin rule at the Coonan Cross Oath
+                  (1653) and later aligned with the Syriac church of Antioch. Despite the
+                  name “Orthodox,” they belong to the Oriental family rather than the Eastern
+                  Orthodox one that the Synod of Jerusalem entry concerns.
+                </p>
+                <div class="b-children">
+                  <details class="bcard">
+                    <summary>
+                      <h4>Mar Thoma Church</h4>
+                      <div class="b-where">Reform offshoot · from the 1830s</div>
+                    </summary>
+                    <div class="b-body">
+                      <p>
+                        A reform movement shaped by Anglican missionaries that brought
+                        communion into the local language (Malayalam), dropped the idea of a
+                        Eucharistic sacrifice, and calls the rite a “sacred mystery,” leaving
+                        members free in how they understand it.
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </details>
+
+      <details class="bcard">
+        <summary>
+          <h4>Church of the East</h4>
+          <div class="b-where">Iraq · Syria · India · diaspora</div>
+          <p class="b-teaser">The ancient Syriac church of Persia and Asia, with a eucharistic prayer that departs from the Western pattern.</p>
+        </summary>
+        <div class="b-body">
+          <p>
+            The Assyrian Church of the East descends from the ancient Syriac church of Persia,
+            which took a separate path in the fifth century and once reached as far as India
+            and China.
+          </p>
+          <p>
+            Its prayer of Addai and Mari lacks a continuous narrative of Jesus's words at the
+            Last Supper, which echo only in pieces through its prayers — a puzzle for
+            traditions that treat those words as the heart of the rite. In 2001 the Catholic
+            Church formally judged the prayer valid anyway.
+          </p>
+          <p>
+            Its Catholic counterparts, the Chaldean and Syro-Malabar churches, are listed
+            under Eastern Catholic churches.
+          </p>
+        </div>
+      </details>
+
+      <details class="bcard">
+        <summary>
+          <h4>Eastern Catholic churches</h4>
+          <div class="b-where">In communion with Rome · Eastern liturgies</div>
+          <p class="b-teaser">Eastern churches that keep their own liturgies while recognizing the pope.</p>
+          <span class="b-count">3 groups inside</span>
+        </summary>
+        <div class="b-body">
+          <p>
+            Their liturgies, calendars and customs stay Eastern, so “Catholic” on this page
+            covers far more than the Latin Rite Mass. Each group below shares a heritage with
+            one of the families above.
+          </p>
+          <div class="b-children">
+
+            <details class="bcard">
+              <summary>
+                <h4>East Syriac</h4>
+                <div class="b-where">Chaldean Catholic · Syro-Malabar Catholic</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  Share the heritage of the Church of the East. A 2001 Vatican guideline
+                  allows Chaldean and Assyrian faithful to receive communion in each other's
+                  celebrations when necessary, though the two churches are not in full
+                  eucharistic communion.
+                </p>
+              </div>
+            </details>
+
+            <details class="bcard">
+              <summary>
+                <h4>West Syriac</h4>
+                <div class="b-where">Maronite · Syro-Malankara Catholic</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  Share the Syriac heritage of Antioch with the Syriac Orthodox and Malankara
+                  churches above.
+                </p>
+              </div>
+            </details>
+
+            <details class="bcard">
+              <summary>
+                <h4>Byzantine</h4>
+                <div class="b-where">Ukrainian Greek Catholic · Melkite</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  Keep the Byzantine liturgy of the Eastern Orthodox churches while
+                  recognizing the pope.
+                </p>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </details>
+
+      <details class="bcard">
+        <summary>
+          <h4>Modern and united churches</h4>
+          <div class="b-where">Twentieth century onward</div>
+          <p class="b-teaser">Movements that blend or cross the older family lines.</p>
+          <span class="b-count">2 groups inside</span>
+        </summary>
+        <div class="b-body">
+          <p>
+            Newer churches and movements that do not fit neatly into the older families
+            above.
+          </p>
+          <div class="b-children">
+
+            <details class="bcard">
+              <summary>
+                <h4>Church of South India</h4>
+                <div class="b-where">India · formed 1947</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  A single church formed from Anglican, Methodist and Reformed traditions — a
+                  reminder that the categories this page keeps apart are sometimes joined in
+                  practice.
+                </p>
+              </div>
+            </details>
+
+            <details class="bcard">
+              <summary>
+                <h4>African Initiated and Pentecostal churches</h4>
+                <div class="b-where">Aladura · Zionist · Kimbanguist · Assemblies of God · and many more</div>
+              </summary>
+              <div class="b-body">
+                <p>
+                  Among the fastest-growing movements in world Christianity. Communion
+                  practice varies widely between and within them, and many don't map neatly
+                  onto this page's spectrum. We haven't surveyed them here.
+                </p>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <details class="bcard beyond-wide">
+      <summary>
+        <h4>Practices this page doesn't describe</h4>
+        <div class="b-where">Found across many of the traditions above</div>
+      </summary>
+      <div class="b-body">
+        <p>
+          Eucharistic adoration and Corpus Christi processions (Catholic); the love feast
+          (Moravian and Brethren); communion given by spoon (Orthodox) or by dipping the
+          bread in the cup, called intinction (Catholic, Anglican, Lutheran and others);
+          and communion for infants (Orthodox and Oriental Orthodox).
+        </p>
+      </div>
+    </details>
+
+    <p class="beyond-close">
+      Treat these as starting points. Each tradition above is best read in its own words,
+      and its own theologians will describe it better than a summary can.
+    </p>
   </div>
 </section>
 
@@ -2175,6 +2537,17 @@ function renderDetail(view) {
   });
 }
 
+</script>
+<script>
+(function(){
+  var section = document.querySelector("section.beyond");
+  if (!section) return;
+  function setAll(open){
+    section.querySelectorAll("details").forEach(function(d){ d.open = open; });
+  }
+  document.getElementById("beyondExpand").addEventListener("click", function(){ setAll(true); });
+  document.getElementById("beyondCollapse").addEventListener("click", function(){ setAll(false); });
+})();
 </script>
 </body>
 </html>
