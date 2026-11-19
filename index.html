@@ -1082,7 +1082,7 @@
 <section class="beyond">
   <div class="container">
     <div class="eyebrow mono">What this page leaves out</div>
-    <h2 style="font-size:28px;">Beyond the European story</h2>
+    <h2 style="font-size:28px;">Beyond Western Europe</h2>
     <p class="section-intro">
       This page follows one thread: the Western European argument over what happens to the
       bread and wine, from medieval Rome through the Reformation. It is the story most
@@ -1144,10 +1144,33 @@
                 <p>
                   The Coptic Church in Egypt, the Syriac Orthodox Church of the Middle East,
                   and the Armenian Apostolic Church each keep their own ancient liturgy and
-                  language. This page does not describe their practice in detail; they are
-                  named here so readers know they exist and are not the same as Greek or
-                  Russian Orthodoxy.
+                  language. This page does not describe the Coptic and Syriac practice in
+                  detail; they are named here so readers know they exist and are not the
+                  same as Greek or Russian Orthodoxy.
                 </p>
+                <div class="b-children">
+                  <details class="bcard">
+                    <summary>
+                      <h4>Armenian Apostolic Church</h4>
+                      <div class="b-where">Armenia and diaspora · unleavened bread, unmixed wine</div>
+                    </summary>
+                    <div class="b-body">
+                      <p>
+                        Uses unleavened bread and wine without added water, where the Greek
+                        church used leavened bread and wine mixed with water. The Byzantine
+                        Council in Trullo (692) condemned the unmixed wine as contrary to
+                        apostolic tradition, and the Armenian church's Council of Manzikert
+                        (726) defended its own customs, linking them to its belief in
+                        Christ's single, unchanging nature. In other words, a difference in
+                        how the Eucharist is prepared carried a difference in theology.
+                      </p>
+                      <p>
+                        The Divine Liturgy is celebrated mainly on Saturdays, Sundays and
+                        great feasts, and in Lent only on Saturdays and Sundays.
+                      </p>
+                    </div>
+                  </details>
+                </div>
               </div>
             </details>
 
@@ -1172,10 +1195,11 @@
                     </summary>
                     <div class="b-body">
                       <p>
-                        A reform movement shaped by Anglican missionaries that brought
-                        communion into the local language (Malayalam), dropped the idea of a
-                        Eucharistic sacrifice, and calls the rite a “sacred mystery,” leaving
-                        members free in how they understand it.
+                        A reform movement influenced by Anglican missionaries that brought
+                        communion into the local language (Malayalam). The church it
+                        produced declines the language of both transubstantiation and
+                        consubstantiation and speaks of “mystery and real presence” without
+                        defining how. See it on the timeline above.
                       </p>
                     </div>
                   </details>
@@ -1322,7 +1346,7 @@
 
     <details class="bcard beyond-wide">
       <summary>
-        <h4>Practices this page doesn't describe</h4>
+        <h4>Practices and disputes this page doesn't describe</h4>
         <div class="b-where">Found across many of the traditions above</div>
       </summary>
       <div class="b-body">
@@ -1332,6 +1356,28 @@
           bread in the cup, called intinction (Catholic, Anglican, Lutheran and others);
           and communion for infants (Orthodox and Oriental Orthodox).
         </p>
+        <div class="b-children">
+          <details class="bcard">
+            <summary>
+              <h4>When does the change happen?</h4>
+              <div class="b-where">Russia · 17th century</div>
+            </summary>
+            <div class="b-body">
+              <p>
+                Moscow's scholars argued over the moment of consecration: at Christ's words
+                of institution, as the Latin tradition taught and as the Kyivan school
+                of Peter Mohyla had adopted, or at the priest's invocation of the Holy
+                Spirit, as the Greek tradition taught. Sylvester Medvedev defended the Latin
+                view; the Greek scholars Joannikios and Sophronios Likhud, who arrived in
+                Moscow in 1685, defended the Greek one. The church's leadership sided with
+                the Greeks. The dispute was about when and by what the change occurs, not
+                whether it does, which is why it sits here and not on the timeline. The
+                Church of the East's prayer of Addai and Mari, above, raises a related
+                question.
+              </p>
+            </div>
+          </details>
+        </div>
       </div>
     </details>
 
@@ -1380,6 +1426,15 @@ const TIMELINE = [
     label: "The Didache",
     detail: "An early Christian instruction manual describes a thanksgiving (“eucharist”) meal with set prayers, showing the ritual was standardized remarkably early.",
     source: { label: "Read the Didache, ch. 9–10", url: "https://www.newadvent.org/fathers/0714.htm" }
+  },
+  {
+    date: "754 / 787",
+    label: "Hieria and Nicaea II",
+    detail: "A council of iconoclast bishops at Hieria (754) condemns sacred images, arguing that the only true image of Christ is the Eucharist itself — bread and wine as the one permitted “figure” of his humanity. The Second Council of Nicaea (787) overturns it. In its Acts, the reply is that no Father ever called the unbloody sacrifice an “image” of Christ's body: such language could be used of the gifts before consecration, but afterward they are, “indeed and in truth,” his body and blood. Neither side offers a mechanism. The point at stake is whether the consecrated elements are a likeness of Christ or his presence, and the East answers: presence, left unexplained. That is the same position the Synod of Jerusalem later states in 1672.",
+    footnote: "*Hieria's Eucharist argument and Nicaea II's reply both survive in the council's Acts (Session VI). The Eucharist was not the council's subject; it came up because the iconoclasts used it to argue against icons.",
+    source: { label: "Read the Acts of Nicaea II, Sixth Session", url: "https://readthesaints.com/2023/04/22/acts-seventh-ecumenical-council-nicaea-sixth-session/" },
+    band: "orthodox",
+    tags: [{ text: "Objective Change", color: "var(--wine)" }]
   },
   {
     date: "1054",
@@ -1463,6 +1518,15 @@ const TIMELINE = [
     detail: "Robert Barclay's Apology for the True Christian Divinity gives the young Quaker movement its fullest theological defense. Communion, he argues, is “inward and spiritual” — a real participation in Christ that nourishes “the inward Man” directly. The outward breaking of bread was a sign for the spiritually immature; like other shadows of the old covenant, it “ceases in such as have obtained the Substance.” The Salvation Army arrives at the same practice independently two centuries later, formally setting the sacraments aside in 1883.",
     source: { label: "Read Barclay's Apology, Proposition XIII (Project Gutenberg)", url: "https://www.gutenberg.org/files/56487/56487-h/56487-h.htm" },
     tags: [{ text: "Cessationism", color: "var(--slate)" }]
+  },
+  {
+    date: "1836",
+    label: "The Mar Thoma Reform",
+    detail: "In Kerala, India, reformers led by Abraham Malpan, influenced by Anglican missionaries, petition against 24 practices they judge erroneous in the ancient Malankara church. Communion moves into the local language, Malayalam, and is given to the people in both kinds. The church that grows from the reform, the Mar Thoma Church, joins Reformed theology to a Syriac liturgy. It declines the language of both transubstantiation and consubstantiation and speaks instead of “mystery and real presence,” making no attempt to define the Qurbana doctrinally. A Protestant-influenced church that arrives, independently, where Anglicanism and the Eastern churches already stood.",
+    footnote: "*The Mar Thoma Church does not publish a single formal doctrine of presence. “Holy Mystery” follows its own language: it speaks of mystery and real presence and declines to define the mechanism.",
+    source: { label: "Read about the Mar Thoma Church on Wikipedia", url: "https://en.wikipedia.org/wiki/Mar_Thoma_Syrian_Church" },
+    band: "orthodox",
+    tags: [{ text: "Holy Mystery", color: "var(--wine)" }]
   }
 ];
 
@@ -1536,7 +1600,7 @@ const DENOMINATIONS = {
   "Real Spiritual Presence": ["Presbyterian", "Congregationalist", "Reformed"],
   "Sacramental Union": ["Lutheran"],
   "Transubstantiation": ["Roman Catholic"],
-  "Holy Mystery": ["Anglican", "Methodist", "Moravian"],
+  "Holy Mystery": ["Anglican", "Methodist", "Moravian", "Mar Thoma"],
   "Objective Change": ["Eastern Orthodox", "Oriental Orthodox"],
   "Cessationism": ["Quakers", "The Salvation Army"]
 };
@@ -1554,6 +1618,7 @@ const DENOM_INFO = {
   "Anglican": "The Book of Common Prayer deliberately leaves the mechanism of presence undefined.",
   "Methodist": "John Wesley encouraged frequent, even constant, communion — though practice today varies widely by congregation.",
   "Moravian": "One of the oldest Protestant traditions, tracing to 15th-century Bohemia, well before the Reformation proper.",
+  "Mar Thoma": "An Indian church from Kerala that joins Reformed theology to a Syriac liturgy; its own teaching speaks of “mystery and real presence” without defining how.",
   "Eastern Orthodox": "Uses leavened bread in the liturgy, unlike the unleavened wafer common in Western churches.",
   "Oriental Orthodox": "A broader category including Armenian, Coptic, and Syriac churches outside Eastern Orthodoxy proper.",
   "Quakers": "Formally the Religious Society of Friends; classical (“unprogrammed”) meetings hold that Christ is met directly in silent worship, with no outward rite at all.",
@@ -1586,7 +1651,7 @@ applyOrientationClass();
 
 const BAND_CAPTIONS = {
   reformation: "The Reformation",
-  orthodox: "Meanwhile, in the East"
+  orthodox: "In the East"
 };
 
 // state: which main row is open, and the chain of beliefs drilled into
@@ -1807,11 +1872,22 @@ function render() {
   spineCol.querySelectorAll(".row.open").forEach(r => r.classList.remove("open"));
 
   lastOpenedEl = null;
+  treeWrap.style.minHeight = "";
 
   if (treeWrap.classList.contains("portrait")) {
     renderPortraitDetail();
   } else {
     renderLandscape();
+
+    // boxes are absolutely positioned and can run past the end of the
+    // timeline (e.g. when the last entry is open), so grow the wrapper to
+    // contain them instead of letting them cover the section below
+    const wr = treeWrap.getBoundingClientRect();
+    let lowest = 0;
+    explainLayer.querySelectorAll(":scope > *").forEach(el => {
+      lowest = Math.max(lowest, el.getBoundingClientRect().bottom - wr.top);
+    });
+    if (lowest + 40 > wr.height) treeWrap.style.minHeight = (lowest + 40) + "px";
   }
 
   // keep the view centered on whatever box the user just opened, rather
